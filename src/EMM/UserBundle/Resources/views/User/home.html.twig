@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+	{{ parent() }}
+	<div class="container">
+		<h2 class="text-center">
+		BIENVENIDO
+		{% if app.user.role == 'ROLE_ADMIN' %}
+			ADMINISTRADOR
+		{% elseif app.user.role == 'ROLE_USER' %}
+			USUARIO
+		{% endif %}
+		:
+		{{ app.user.fullName }}
+		( {{ app.user.username }} )
+		</h2>
+	</div>
+{% endblock %}

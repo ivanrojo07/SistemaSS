@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+	{{ parent() }}
+	<div class="main container">
+		<div class="row well">
+			<div class="col-md-6">
+				<div class="page-header">
+					<h2>{% trans %}New user{% endtrans %}</h2>
+				</div>
+			{{ form_start(form, { 'attr' : {'novalidate': 'novalidate', 'role': 'form'} }) }}
+
+			<div class="form-group">
+				{{ form_label(form.username) }}
+				{{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Tu username'} }) }}
+				<span class="text-danger">{{ form_errors(form.username) }}</span>
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.nombre) }}
+				{{ form_widget(form.nombre, { 'attr': {'class': 'form-control', 'placeholder': 'Tu nombre'} }) }}
+				<span class="text-danger">{{ form_errors(form.nombre) }}</span>
+			</div>
+
+			<div class="form-group">
+				{{ form_label(form.appaterno) }}
+				{{ form_widget(form.appaterno, { 'attr': {'class': 'form-control', 'placeholder': 'Tu appaterno'} }) }}
+				<span class="text-danger">{{ form_errors(form.appaterno) }}</span>
+			</div>
+			
+			<div class="form-group">
+				{{ form_label(form.apmaterno) }}
+				{{ form_widget(form.apmaterno, { 'attr': {'class': 'form-control', 'placeholder': 'Tu apmaterno'} }) }}
+				<span class="text-danger">{{ form_errors(form.apmaterno) }}</span>
+			</div>			
+			
+			<div class="form-group">
+				{{ form_label(form.rfc) }}
+				{{ form_widget(form.rfc, { 'attr': {'class': 'form-control', 'placeholder': 'Tu rfc'} }) }}
+				<span class="text-danger">{{ form_errors(form.rfc) }}</span>
+			</div>
+			
+			<div class="form-group">
+				{{ form_label(form.email) }}
+				{{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Tu email'} }) }}
+				<span class="text-danger">{{ form_errors(form.email) }}</span>
+			</div>
+			
+			<div class="form-group">
+				{{ form_label(form.password) }}
+				{{ form_widget(form.password, { 'attr': {'class': 'form-control', 'placeholder': 'Tu password'} }) }}
+				<span class="text-danger">{{ form_errors(form.password) }}</span>
+			</div>
+			
+ 			<div class="form-group">
+			        {{ form_label(form.role) }}
+			        {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+			        <span class="text-danger">{{ form_errors(form.role) }}</span>
+			    </div>
+
+				<div class="checkbox">
+				    <label>
+						{{ form_widget(form.isActive) }}{% trans %}Active{% endtrans %}
+						<span class="text-danger">{{ form_errors(form.isActive) }}</span>
+				    </label>
+				</div>
+			</fieldset>
+
+		    <p>
+		        {{ form_widget(form.save, {'label' : 'Create user', 'attr': {'class': 'btn btn-success'}}) }}
+		    </p>                
+
+			{{ form_end(form) }}
+		</div>
+	</div>
+</div>
+{% endblock %}
